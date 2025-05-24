@@ -12,7 +12,7 @@ ${Email}         id=userEmail
 @{Genders}    id=gender-radio-1    id=gender-radio-2    id=gender-radio-3
 ${Mobile_Number}    id=userNumber
 ${Date_Birth}   id=dateOfBirthInput
-${Subjects}     id=subjectsContainer
+${Subjects}     xpath=//div[@id="subjectsContainer"]//input
 @{Hobbies}      id=hobbies-checkbox-1    id=hobbies-checkbox-2    id=hobbies-checkbox-3
 ${Picture}      id=uploadPicture
 ${Address}      id=currentAddress
@@ -56,4 +56,24 @@ Preencher Formulario
     Wait For Elements State    ${State}   visible
     Wait For Elements State    ${City}   visible
     Wait For Elements State    ${Submit}   visible
+
+    Fill Text        ${First_Name}     Teste
+    Fill Text        ${Last_Name}      Teste
+    Fill Text        ${Email}          test@email.com
+    Click            xpath=//label[@for="gender-radio-1"]
+    Fill Text    ${Mobile_Number}    1234567890
+    Click            ${Date_Birth}
+    Select Options By    xpath=//select[contains(@class,"react-datepicker__year-select")]        value        2004
+    Select Options By    xpath=//select[contains(@class,"react-datepicker__month-select")]        value        0
+    Click    xpath=//div[contains(@class,"react-datepicker__day") and text()="9" and not(contains(@class,"--outside-month"))]
+    Fill Text        ${Subjects}         Computer
+    Click    xpath=//div[contains(@id,"react-select") and contains(@class,"option") and text()="Computer Science"]   
+    Click    xpath=//label[@for="hobbies-checkbox-3"]
+    Fill Text    ${Address}    Teste
+    Click    ${State}
+    Click    xpath=//div[contains(@id,"react-select") and contains(@class,"option") and text()="NCR"]
+    Click    ${City}
+    Click    xpath=//div[contains(@id,"react-select") and contains(@class,"option") and text()="Delhi"]
+    Click    ${Submit}
+    Wait For Elements State    xpath=//div[@class="modal-content"]   visible
     Pause Execution
