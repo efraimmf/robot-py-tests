@@ -58,8 +58,10 @@ Nova Janela
 
 Nova Janela de Mensagem
     Abrir Browser Windows Testes
+    Wait For Elements State    ${New_Message_Window_Button}   visible
     ${Old_Pages_Ids}=   Get Page Ids
     Click    ${New_Message_Window_Button}
+    Sleep    1s
     ${New_Pages_Ids}=   Get Page Ids
 
     FOR     ${page}     IN     @{New_Pages_Ids}
