@@ -7,3 +7,6 @@ Abrir Nova Aba
 
 Abrir Nova Janela
     Nova Janela
+
+Abrir Nova Janela de Mensagem
+    Nova Janela de Mensagem
